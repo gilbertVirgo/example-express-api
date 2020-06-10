@@ -1,2 +1,2 @@
-# examplie-express-api
+# example-express-api
 Example express API
