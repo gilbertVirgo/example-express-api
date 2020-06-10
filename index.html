@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			const init = async () => {
+				const response = await fetch("http://localhost:4000/question", {
+					headers: {
+						"Content-Type": "application/json",
+					},
+					method: "POST",
+					body: JSON.stringify({
+						question: "My brand new question",
+					}),
+				});
+				const json = await response.json();
+
+				if (json.success) {
+					document.write("You added a new question!");
+				} else {
+					document.write("It broke somewhere... " + json.error);
+				}
+			};
+
+			window.onload = init;
+		</script>
+	</body>
+</html>
